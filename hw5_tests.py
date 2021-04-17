@@ -1,3 +1,7 @@
+####Name: Yasin Shafi
+####Uniqname: yasins
+####UM ID: 32812468
+
 import unittest
 import hw5_cards
 
@@ -34,8 +38,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        c3 = hw5_cards.Card(rank=12)
+        self.assertEqual(c3.rank, 12)
+        self.assertEqual(c3.rank_name, "Queen")
+        return c3.rank_name, "Queen"
     
     def test_q2(self):
         '''
@@ -49,8 +55,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y    
+        c4 = hw5_cards.Card(suit=1)
+        self.assertEqual(c4.suit, 1)
+        self.assertEqual(c4.suit_name, "Clubs")
+        return c4.suit_name, "Clubs"    
     
 
     def test_q3(self):
@@ -66,8 +74,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        c5 = hw5_cards.Card(suit=3,rank=13)
+        self.assertEqual(c5.__str__(), "King of Spades")
+        return c5.__str__(), "King of Spades"
     
     def test_q4(self):
         '''
@@ -81,8 +90,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y  
+        deck = hw5_cards.Deck()
+        self.assertEqual(len(deck.cards), 52)
+        return len(deck.cards), 52  
 
     def test_q5(self):
         '''
@@ -96,8 +106,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        dealt_card = hw5_cards.Deck().deal_card(i=-1)
+        self.assertIsInstance(dealt_card, hw5_cards.Card)
+        return dealt_card, hw5_cards.Card
     
     def test_q6(self):
         '''
@@ -112,8 +123,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y    
+        deck = hw5_cards.Deck()
+        dealt_card = deck.deal_card(i=-1)
+        self.assertEqual(len(deck.cards), 51)
+        return len(deck.cards), 51    
     
 
     def test_q7(self):
@@ -129,8 +142,11 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        deck = hw5_cards.Deck()
+        dealt_card = deck.deal_card(i=-1)
+        deck.replace_card(dealt_card)
+        self.assertEqual(len(deck.cards), 52)
+        return len(deck.cards), 52 
     
     def test_q8(self):
         '''
@@ -145,8 +161,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y  
+        deck = hw5_cards.Deck()
+        deck.replace_card(deck.cards[0])
+        self.assertEqual(len(deck.cards), 52)
+        return len(deck.cards), 52  
 
 
 
